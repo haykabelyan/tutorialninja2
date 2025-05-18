@@ -8,7 +8,7 @@ test.describe('Desktop tests', () => {
     await page.goto('https://tutorialsninja.com/demo/index.php?route=common/home');
   });
 
-  test('Desktop', async ({ page }) => {
+  test('@smoke Desktop', async ({ page }) => {
 
     await page.getByRole('link', { name: 'Desktops', exact: true }).hover();
     await page.getByRole('link', { name: 'PC (0)', exact: true }).click();
