@@ -6,13 +6,14 @@ on:
     branches: [ main, master ]
   workflow_dispatch:
     inputs:
-      environment:
-        description: 'Целевая среда'
-        required: true
-        default: 'staging'
-      version:
-        description: 'Номер версии'
-        required: false
+      test_suite:
+        description: 'Выберите набор тестов для запуска'
+        type: choice          # ← тип choice делает это dropdown
+        options:
+          - all
+          - smoke
+        default: all          # ← необязательно, но удобно задать выбор по умолчанию
+
 jobs:
   test:
     timeout-minutes: 60
