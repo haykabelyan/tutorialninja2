@@ -4,7 +4,15 @@ on:
     branches: [ main, master ]
   pull_request:
     branches: [ main, master ]
-  workflow_dispatch:    # <-- այս տողը ավելացրիր
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Целевая среда'
+        required: true
+        default: 'staging'
+      version:
+        description: 'Номер версии'
+        required: false
 jobs:
   test:
     timeout-minutes: 60
